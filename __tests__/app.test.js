@@ -118,4 +118,28 @@ describe('pet-insurance-comparison-BE routes', () => {
 
     expect(res.body).toEqual([company1, company2, company3, company4]);
   });
+
+  it('gets one company by id', async () => {
+    const company = await Companies.insert({
+      title: 'Spot',
+      cured: 'available after 6 months',
+      dental: true,
+      food: true,
+      uniquetrait: 'none',
+      death: false,
+      deductable: '$100',
+      cancellation: '30-day money-back guarantee',
+      reviews: 'none',
+      rerate: '90%',
+      remax: '$5000',
+      quote: '$46',
+      fee: 'No',
+      website: 'https://spotpetins.com/',
+      logo: 'https://www.gatewaygreen.org/wp-content/uploads/2020/03/spot-pet-insurance-re-size1-675x478.png',
+    });
+
+    const res = await request(app).get(`/api/v1/companies/${company.id}`);
+
+    expect(res.body).toEqual(company);
+  });
 });
