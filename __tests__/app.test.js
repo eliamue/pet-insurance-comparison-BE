@@ -15,11 +15,11 @@ describe('pet-insurance-comparison-BE routes', () => {
 
   it('creates a new company', async () => {
     const company = {
-      name: 'Fetch (formerly Pet Plan)',
+      title: 'Fetch (formerly Pet Plan)',
       cured_condition_eligible: 'available after 12 months',
       dental: true,
       food: true,
-      unique: 'E-vet visits',
+      unique_trait: 'E-vet visits',
       death_coverage: false,
       deductable: '$250',
       cancellation: '30-day money-back guarantee',

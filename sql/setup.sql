@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS companies CASCADE;
+DROP TABLE IF EXISTS companies;
 
 CREATE TABLE companies (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -10,11 +10,11 @@ CREATE TABLE companies (
     cured_condition_eligible TEXT,
     signup_fee TEXT,
     deductable TEXT,
-    unique TEXT,
+    unique_trait TEXT,
     reviews TEXT,
     cancellation TEXT,
     reimbursement_max TEXT,
     reimbursement_rate TEXT,
     dental BOOLEAN,
     food BOOLEAN
-)
+);
