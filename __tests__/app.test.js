@@ -192,7 +192,7 @@ describe('pet-insurance-comparison-BE routes', () => {
       logo: 'https://mma.prnewswire.com/media/1030205/Embrace_Logo.jpg?p=twitter',
     });
 
-    const res = await request(app).delete(`/api/v1/resources/${company.id}`);
+    const res = await request(app).delete(`/api/v1/companies/${company.id}`);
 
     expect(res.body).toEqual({
       message: `You have deleted ${company.title}.`,
