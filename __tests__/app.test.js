@@ -172,4 +172,30 @@ describe('pet-insurance-comparison-BE routes', () => {
       reviews: 'great',
     });
   });
+
+  it('deletes a specific existing company', async () => {
+    const company = await Companies.insert({
+      title: 'Embrace',
+      cured: 'available after 12 months',
+      dental: true,
+      food: true,
+      uniquetrait: 'RX food covered via FSA',
+      death: false,
+      deductable: '$200, vanishing',
+      cancellation: '30-day money-back guarantee',
+      reviews: 'fine',
+      rerate: '90%',
+      remax: '$5000',
+      quote: '$62',
+      fee: '$25',
+      website: 'https://www.embracepetinsurance.com/',
+      logo: 'https://mma.prnewswire.com/media/1030205/Embrace_Logo.jpg?p=twitter',
+    });
+
+    const res = await request(app).delete(`/api/v1/resources/${company.id}`);
+
+    expect(res.body).toEqual({
+      message: `You have deleted ${company.title}.`,
+    });
+  });
 });
